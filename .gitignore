@@ -1,6 +1,8 @@
 # dir
+.idea
 .pytest_cache
 .venv
+.vscode
 **/*__pycache**
 **.egg-info
 build
