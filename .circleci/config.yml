@@ -1,6 +1,17 @@
 version: 2.1
 
 jobs:
+  haskell_setup:
+    docker:
+      - image: haskell:9.6.7
+    steps:
+      - checkout
+      - run:
+          name: Update package list
+          command: cabal --verbose=0 update
+      - run:
+          name: Run tests
+          command: cabal --verbose=0 test
   java_setup:
     docker:
       - image: maven:3.9.9-eclipse-temurin-21-noble
@@ -11,7 +22,7 @@ jobs:
           command: mvn test
   python-setup:
     docker:
-      - image: python:3.9 
+      - image: python:3.9
     steps:
       - checkout
       - run:
@@ -25,6 +36,12 @@ jobs:
 
 workflows:
   version: 2
+  haskell_test:
+    jobs:
+      - test
+          filters:
+            branches:
+              only: /.*haskell.*/
   java_test:
     jobs:
       - test:
