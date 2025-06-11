@@ -3,10 +3,10 @@ name: Python Tests
 on:
   push:
     branches:
-      - '*python*'
+      - '*trial*'
   pull_request:
     branches:
-      - '*python*'
+      - '*trial*'
 
 jobs:
   test:

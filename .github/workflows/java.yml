@@ -3,10 +3,10 @@ name: Java Maven Tests
 on:
   push:
     branches:
-      - '*java*'
+      - '*trial*'
   pull_request:
     branches:
-      - '*java*'
+      - '*trial*'
 
 jobs:
   test:
